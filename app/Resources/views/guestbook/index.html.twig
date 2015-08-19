@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table" border="1">
+        {% for entry in entries %}
+            <tr>
+                <td>{{ entry.Username|e }}</td>
+                <td>{{ entry.Message|e }}</td>
+                <td><a href={{ path('app_guestbook_delete', { 'id': entry.ID }) }}>Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="btn btn-default" href="{{ path('app_guestbook_add') }}">Add</a>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+</style>
+{% endblock %}
